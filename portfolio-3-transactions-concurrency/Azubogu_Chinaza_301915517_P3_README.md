@@ -62,3 +62,26 @@ PostgreSQL Documentation – Transactions:
 
 https://www.postgresql.org/docs/current/tutorial-transactions.html
 
+
+## 4. Two-Session Concurrency Test
+
+The concurrency test used two independent PostgreSQL sessions at the
+READ COMMITTED isolation level.
+
+Both sessions attempted to insert version 3 for the Annual Financial
+Policy (Document ID 1). Session A committed successfully, while
+Session B encountered a unique constraint violation because the
+(document_id, version_number) combination already existed.
+
+Session B was rolled back, and the final query confirmed that the
+committed version 3 remained intact.
+
+### Evidence
+
+**Screenshot 1: Session B Waiting**
+
+![Concurrency Waiting](Screenshots/Azubogu_Chinaza_301915517_P3_Concurrency_Waiting.png)
+
+**Screenshot 2: Final Concurrency Outcome**
+
+![Concurrency Final](Screenshots/Azubogu_Chinaza_301915517_P3_Concurrency_Final.png)
