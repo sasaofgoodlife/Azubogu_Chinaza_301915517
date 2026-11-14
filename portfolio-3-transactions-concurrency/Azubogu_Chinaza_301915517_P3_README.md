@@ -1,4 +1,4 @@
-# Portfolio 3 Transactions and Concurrency
+# Transactions and Concurrency
 
 ## Case Study
 

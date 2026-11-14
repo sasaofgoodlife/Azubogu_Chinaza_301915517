@@ -5,7 +5,6 @@
 -- Run the exercise once against the prepared database.
 -- The COMMIT operation permanently changes Document 1's
 -- retention date from 2031-01-10 to 2032-01-10.
--- =========================================================
 
 
 

@@ -1,18 +1,5 @@
--- =========================================================
--- MIT 8103: ADVANCED DATABASE SYSTEMS
--- PORTFOLIO 2: QUERY PROCESSING AND OPTIMISATION
--- CASE STUDY: ELECTRONIC DOCUMENT MANAGEMENT SYSTEM (EDMS)
--- STUDENT ID: 301915517
--- =========================================================
-
--- IMPORTANT:
--- Run the setup section ONCE only.
--- The benchmark schema is separate from Portfolio 1.
--- Original EDMS tables and records remain unchanged.
-
--- =========================================================
 -- 1. SETUP: CREATE BENCHMARK SCHEMA AND TABLE
--- =========================================================
+
 
 CREATE SCHEMA p2_benchmark;
 
@@ -84,9 +71,7 @@ FROM generated_rows;
 ANALYZE p2_benchmark.synthetic_activity_history;
 
 
--- =========================================================
 -- 2. COUNT QUERY
--- =========================================================
 
 SELECT COUNT(*) AS total_generated_records
 FROM p2_benchmark.synthetic_activity_history;
@@ -94,14 +79,7 @@ FROM p2_benchmark.synthetic_activity_history;
 -- Expected result: 100,000 records.
 
 
--- =========================================================
 -- 3. BEFORE-INDEX QUERY PLAN
--- =========================================================
-
--- Execute once as a warm-up.
--- Then execute three additional times for measurement.
--- Record the three execution times and the top-level
--- shared buffer hits from the third measured execution.
 
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT
@@ -117,9 +95,7 @@ WHERE activity_date >= TIMESTAMPTZ '2025-02-04 00:00:00+00'
 ORDER BY activity_date;
 
 
--- =========================================================
 -- 4. CREATE B-TREE INDEX
--- =========================================================
 
 CREATE INDEX idx_synthetic_activity_history_activity_date
 ON p2_benchmark.synthetic_activity_history
@@ -129,14 +105,7 @@ USING BTREE (activity_date);
 ANALYZE p2_benchmark.synthetic_activity_history;
 
 
--- =========================================================
 -- 5. AFTER-INDEX QUERY PLAN
--- =========================================================
-
--- Execute once as a warm-up.
--- Then execute three additional times for measurement.
--- Record the three execution times and the top-level
--- shared buffer hits from the third measured execution.
 
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT

@@ -1,16 +1,4 @@
--- =========================================================
--- MIT 8103: ADVANCED DATABASE SYSTEMS
--- PORTFOLIO 2: QUERY PROCESSING AND OPTIMISATION
--- Database: edms_portfolio
--- Case Study: Electronic Document Management System (EDMS)
--- =========================================================
-
-
--- =========================================================
 -- QUERY 1: RETRIEVE ACTIVE DOCUMENTS
--- Joins document, user_account and department.
--- Filters documents with Active status.
--- =========================================================
 
 SELECT
     d.document_id,
@@ -31,11 +19,7 @@ ORDER BY
     d.document_id ASC;
 
 
--- =========================================================
 -- QUERY 2: FIND DOCUMENTS WITHOUT ACCESS PERMISSIONS
--- Uses NOT EXISTS to identify documents without
--- corresponding records in document_access.
--- =========================================================
 
 SELECT
     d.document_id,
@@ -52,11 +36,7 @@ ORDER BY
     d.document_id ASC;
 
 
--- =========================================================
 -- QUERY 3: COUNT ACCESS PERMISSIONS PER DOCUMENT
--- Uses LEFT JOIN to retain documents with zero
--- access permission records.
--- =========================================================
 
 SELECT
     d.document_id,
@@ -70,8 +50,3 @@ GROUP BY
     d.title
 ORDER BY
     d.document_id ASC;
-
-
--- =========================================================
--- END OF PORTFOLIO 2 QUERIES
--- =========================================================

@@ -1,6 +1,5 @@
-# Portfolio 1 Database Design and Modelling
+# Database Design and Modelling
 
-C# Portfolio 1: Database Design and Modelling
 
 ## 1. Case Study
 

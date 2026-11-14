@@ -1,4 +1,4 @@
-# Portfolio 2: Query Processing and Optimisation
+# Query Processing and Optimisation
 
 **Case Study:** Electronic Document Management System (EDMS)  
 **Database:** `edms_portfolio`
